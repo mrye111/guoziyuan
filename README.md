@@ -16,6 +16,15 @@ npm run build    # 类型检查 + 打包到 dist/
 npm run preview  # 本地预览构建产物
 ```
 
+## 直播回放自动同步
+
+直播日历的回放数据在 [`src/data/streams.json`](src/data/streams.json)，**不要手改**——它由脚本从 [B站录像合集](https://space.bilibili.com/3707028832783215/lists/8892206?type=season) 生成：
+
+- **自动**：GitHub Actions 每天北京时间 11:17 抓取一次（`.github/workflows/update-replays.yml`），有新回放会自动提交并触发 Pages 重新部署
+- **手动**：`npm run fetch-replays`（Actions 页面也能点 workflow_dispatch 立即跑一次）
+
+脚本按标题解析直播日期（`2026.08.22 20点` 这种格式），同一天多场按时间排序，月历格子上显示「回放 ×N」并链接到第一场。
+
 ## 目录结构
 
 ```
@@ -36,7 +45,6 @@ npm run preview  # 本地预览构建产物
 所有文案、排期、切片、照片、留言种子都在 [`src/data/content.ts`](src/data/content.ts)：
 
 - `live`：直播状态横幅（`isLive` 切换直播中/预告）
-- `streams`：历史直播记录（月历上标粉的日子，`date` 格式 `YYYY-MM-DD`，`url` 填当天回放地址）
 - `clips`：切片卡片（封面插画由 `theme`/`fruit` 程序生成）
 - `heroPhotos`：首屏照片轮播（图片放 `public/photos/`）
 - `photos`：果子的日常照片墙

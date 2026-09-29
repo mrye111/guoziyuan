@@ -29,9 +29,14 @@ export function LiveCalendar() {
   const todayDs = dateStr(now.getFullYear(), now.getMonth(), now.getDate());
   const [view, setView] = useState({ y: now.getFullYear(), m: now.getMonth() });
 
+  /** 按日期分组：同一天多场直播按时间升序排列 */
   const streamMap = useMemo(() => {
-    const map = new Map<string, { title: string; url: string }>();
-    content.streams.forEach((s) => map.set(s.date, { title: s.title, url: s.url }));
+    const map = new Map<string, typeof content.streams>();
+    content.streams.forEach((s) => {
+      const list = map.get(s.date) || [];
+      list.push(s);
+      map.set(s.date, list);
+    });
     return map;
   }, []);
 
@@ -104,22 +109,25 @@ export function LiveCalendar() {
           <div key={`${view.y}-${view.m}`} className="grid grid-cols-7 gap-1.5 sm:gap-2 calendar-fade">
             {cells.map((c, i) => {
               if (!c) return <div key={`e${i}`} />;
-              const stream = streamMap.get(c.ds);
-              if (stream) {
+              const sessions = streamMap.get(c.ds);
+              if (sessions) {
+                const first = sessions[0];
                 return (
                   <a
                     key={c.ds}
-                    href={stream.url}
+                    href={first.url}
                     target="_blank"
                     rel="noopener"
-                    title={`${c.ds}「${stream.title}」· 点击看回放`}
-                    aria-label={`${c.ds} 直播回放：${stream.title}`}
+                    title={sessions.length > 1 ? `${c.ds} 当天共 ${sessions.length} 场 · 点击看第一场回放` : `${c.ds}「${first.title}」· 点击看回放`}
+                    aria-label={sessions.length > 1 ? `${c.ds} 当天共 ${sessions.length} 场直播，点击看回放` : `${c.ds} 直播回放：${first.title}`}
                     className={`aspect-square sm:aspect-auto sm:min-h-[72px] rounded-xl sm:rounded-2xl flex flex-col items-center justify-center gap-0.5 bg-gradient-to-b from-pink to-hotpink text-white shadow-[0_6px_18px_rgba(255,107,138,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_26px_rgba(255,107,138,0.5)] ${
                       c.isToday ? 'ring-2 ring-amber ring-offset-2 ring-offset-card' : ''
                     }`}
                   >
                     <span className="font-display text-base sm:text-lg leading-none">{c.day}</span>
-                    <span className="hidden sm:block text-[10px] opacity-95">回放 ▸</span>
+                    <span className="hidden sm:block text-[10px] opacity-95">
+                      {sessions.length > 1 ? `回放 ×${sessions.length}` : '回放 ▸'}
+                    </span>
                     <span className="sm:hidden w-1 h-1 rounded-full bg-white/90" aria-hidden="true" />
                   </a>
                 );

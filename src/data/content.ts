@@ -1,4 +1,6 @@
-/* 站点全部内容配置 —— 改内容只动这个文件 */
+/* 站点全部内容配置 —— 改内容只动这个文件
+   （streams 回放列表在 streams.json，由 scripts/fetch-replays.mjs 每日自动更新） */
+import streamsData from './streams.json';
 
 export interface LiveConfig {
   isLive: boolean;
@@ -57,35 +59,8 @@ export const content = {
   } as LiveConfig,
 
   /* 历史直播记录：有记录的日子会在月历上标粉，点击看回放
-     （url 先占位为直播间，换成每天的实际回放地址即可） */
-  streams: [
-    { date: '2026-08-25', title: '游戏回', url: HUYA_URL },
-    { date: '2026-08-27', title: '歌回', url: HUYA_URL },
-    { date: '2026-08-28', title: '深夜杂谈', url: HUYA_URL },
-    { date: '2026-08-29', title: '高能游戏日', url: HUYA_URL },
-    { date: '2026-08-30', title: '下午茶杂谈', url: HUYA_URL },
-    { date: '2026-09-01', title: '游戏回', url: HUYA_URL },
-    { date: '2026-09-03', title: '歌回', url: HUYA_URL },
-    { date: '2026-09-04', title: '深夜杂谈', url: HUYA_URL },
-    { date: '2026-09-05', title: '高能游戏日', url: HUYA_URL },
-    { date: '2026-09-06', title: '下午茶杂谈', url: HUYA_URL },
-    { date: '2026-09-08', title: '游戏回', url: HUYA_URL },
-    { date: '2026-09-10', title: '歌回', url: HUYA_URL },
-    { date: '2026-09-11', title: '深夜杂谈', url: HUYA_URL },
-    { date: '2026-09-12', title: '高能游戏日', url: HUYA_URL },
-    { date: '2026-09-13', title: '下午茶杂谈', url: HUYA_URL },
-    { date: '2026-09-15', title: '游戏回', url: HUYA_URL },
-    { date: '2026-09-17', title: '歌回', url: HUYA_URL },
-    { date: '2026-09-18', title: '深夜杂谈', url: HUYA_URL },
-    { date: '2026-09-19', title: '高能游戏日', url: HUYA_URL },
-    { date: '2026-09-20', title: '下午茶杂谈', url: HUYA_URL },
-    { date: '2026-09-22', title: '游戏回', url: HUYA_URL },
-    { date: '2026-09-24', title: '歌回', url: HUYA_URL },
-    { date: '2026-09-25', title: '深夜杂谈', url: HUYA_URL },
-    { date: '2026-09-26', title: '高能游戏日', url: HUYA_URL },
-    { date: '2026-09-27', title: '下午茶杂谈', url: HUYA_URL },
-    { date: '2026-09-29', title: '游戏回', url: HUYA_URL },
-  ] as StreamDay[],
+     数据来自 B站录像合集，scripts/fetch-replays.mjs 每日自动同步 */
+  streams: streamsData as StreamDay[],
 
   clips: [
     { title: '【高能】果子一嗓子把队友唱哭了', plays: '12.6万', date: '2026-09-20', platform: '虎牙', url: HUYA_URL, theme: 'pink', fruit: 'apple' },
