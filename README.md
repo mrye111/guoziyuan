@@ -56,7 +56,12 @@ npm run preview  # 本地预览构建产物
 
 ## 部署
 
-仓库 Settings → Pages → Source 选 **GitHub Actions**，之后每次推送 `main` 自动构建发布到 `https://mrye111.github.io/guoziyuan/`。
+推送 `main` 后 GitHub Actions 自动构建并部署到两处（`.github/workflows/deploy.yml`）：
+
+- **GitHub Pages**：`https://mrye111.github.io/guoziyuan/`（需 Pages 来源选 GitHub Actions）
+- **自有服务器**：rsync 到 `ubuntu@101.35.250.122:/opt/guoziyuan/web`，由 nginx 服务 `guoziyuan.cn`
+
+服务器部署需要在仓库 **Settings → Secrets and variables → Actions** 添加 `GUOZIYUAN_DEPLOY_KEY`（专用部署私钥，公钥已加到服务器 `~ubuntu/.ssh/authorized_keys`）。
 
 ## 边界
 
