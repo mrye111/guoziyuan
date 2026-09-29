@@ -68,12 +68,9 @@ export function HeroCarousel({ photos }: Props) {
               }`}
             />
           ))}
-          {/* 底部压角渐变 + 文案 */}
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink/80 to-transparent" aria-hidden="true" />
-          <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-end justify-between gap-2">
-            <span className="rounded-full bg-ink/55 backdrop-blur px-3.5 py-1.5 text-xs text-cream/95" aria-live="polite">
-              {photos[index].caption}
-            </span>
+          {/* 底部压角渐变 + 序号 */}
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink/60 to-transparent" aria-hidden="true" />
+          <div className="absolute bottom-3.5 right-3.5">
             <span className="rounded-full bg-ink/55 backdrop-blur px-2.5 py-1.5 text-[11px] text-cream/75 tabular-nums">
               {index + 1} / {n}
             </span>
