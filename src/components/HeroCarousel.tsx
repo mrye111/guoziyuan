@@ -41,7 +41,7 @@ export function HeroCarousel({ photos }: Props) {
           type="button"
           onClick={() => go(prev)}
           aria-label="上一张"
-          className="hidden sm:block absolute -left-14 top-1/2 -translate-y-1/2 -rotate-8 w-40 aspect-[3/4] rounded-3xl overflow-hidden border-2 border-white/10 opacity-60 hover:opacity-90 hover:scale-105 transition-all cursor-pointer z-0"
+          className="hidden sm:block absolute -left-14 top-1/2 -translate-y-1/2 -rotate-8 w-40 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white opacity-60 hover:opacity-90 hover:scale-105 transition-all cursor-pointer z-0 shadow-[0_12px_36px_rgba(74,53,64,0.15)]"
         >
           <img src={photos[prev].src} alt="" className="w-full h-full object-cover" />
         </button>
@@ -49,13 +49,13 @@ export function HeroCarousel({ photos }: Props) {
           type="button"
           onClick={() => go(next)}
           aria-label="下一张"
-          className="hidden sm:block absolute -right-14 top-1/2 -translate-y-1/2 rotate-8 w-40 aspect-[3/4] rounded-3xl overflow-hidden border-2 border-white/10 opacity-60 hover:opacity-90 hover:scale-105 transition-all cursor-pointer z-0"
+          className="hidden sm:block absolute -right-14 top-1/2 -translate-y-1/2 rotate-8 w-40 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white opacity-60 hover:opacity-90 hover:scale-105 transition-all cursor-pointer z-0 shadow-[0_12px_36px_rgba(74,53,64,0.15)]"
         >
           <img src={photos[next].src} alt="" className="w-full h-full object-cover" />
         </button>
 
         {/* 主卡 */}
-        <div className="relative z-10 aspect-[3/4] rounded-[2rem] overflow-hidden border-2 border-white/15 shadow-[0_24px_80px_rgba(255,111,165,0.28)]">
+        <div className="relative z-10 aspect-[3/4] rounded-[2rem] overflow-hidden border-4 border-white shadow-[0_24px_80px_rgba(255,107,138,0.35)]">
           {photos.map((p, i) => (
             <img
               key={p.src}
@@ -74,7 +74,7 @@ export function HeroCarousel({ photos }: Props) {
             <span className="rounded-full bg-ink/55 backdrop-blur px-3.5 py-1.5 text-xs text-cream/95" aria-live="polite">
               {photos[index].caption}
             </span>
-            <span className="rounded-full bg-ink/55 backdrop-blur px-2.5 py-1.5 text-[11px] text-mute tabular-nums">
+            <span className="rounded-full bg-ink/55 backdrop-blur px-2.5 py-1.5 text-[11px] text-cream/75 tabular-nums">
               {index + 1} / {n}
             </span>
           </div>
@@ -90,7 +90,7 @@ export function HeroCarousel({ photos }: Props) {
               aria-label={`第 ${i + 1} 张`}
               aria-current={i === index}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === index ? 'w-6 bg-pink' : 'w-2 bg-white/25 hover:bg-white/50'
+                i === index ? 'w-6 bg-pink' : 'w-2 bg-ink/15 hover:bg-ink/30'
               }`}
             />
           ))}

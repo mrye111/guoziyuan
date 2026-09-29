@@ -24,8 +24,8 @@ export function LiveCalendar() {
                   key={d.weekday}
                   className={`relative shrink-0 w-[108px] lg:w-auto snap-center rounded-3xl p-4 text-center border transition-all duration-200 hover:-translate-y-1.5 ${
                     d.isLive
-                      ? 'bg-gradient-to-b from-pink/20 to-violet/10 border-pink/40 shadow-[0_10px_36px_rgba(255,111,165,0.18)]'
-                      : 'bg-card border-white/5 hover:border-white/15'
+                      ? 'bg-gradient-to-b from-pink/15 to-violet/8 border-pink/45 shadow-[0_10px_36px_rgba(255,107,138,0.22)]'
+                      : 'bg-card border-ink/8 hover:border-pink/30'
                   }`}
                 >
                   {isToday && (
@@ -39,8 +39,8 @@ export function LiveCalendar() {
                   </p>
                   {d.isLive ? (
                     <>
-                      <p className="text-sm font-semibold text-cream">{d.time}</p>
-                      <p className="text-[11px] text-cream/70 mt-0.5">{d.note}</p>
+                      <p className="text-sm font-semibold text-ink">{d.time}</p>
+                      <p className="text-[11px] text-ink/65 mt-0.5">{d.note}</p>
                       <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-pink/90 text-white text-[10px] font-bold px-2 py-0.5 tracking-wider">
                         <span className="w-1.5 h-1.5 rounded-full bg-white live-dot-on" />
                         LIVE

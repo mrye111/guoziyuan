@@ -16,7 +16,7 @@ export function PhotoWall() {
             {content.photos.map((p, i) => (
               <figure
                 key={p.src}
-                className="group relative shrink-0 w-44 lg:w-auto snap-center bg-[#FFFDF7] rounded-md p-2.5 pb-9 shadow-[0_14px_36px_rgba(0,0,0,0.4)] transition-all duration-300 hover:rotate-0 hover:scale-105 hover:z-10"
+                className="group relative shrink-0 w-44 lg:w-auto snap-center bg-[#FFFDF7] rounded-md p-2.5 pb-9 shadow-[0_14px_36px_rgba(74,53,64,0.16)] transition-all duration-300 hover:rotate-0 hover:scale-105 hover:z-10"
                 style={{ transform: `rotate(${TILTS[i % TILTS.length]}deg)` }}
               >
                 <span className="polaroid-tape" aria-hidden="true" />

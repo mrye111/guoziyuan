@@ -136,7 +136,7 @@ export function StarMessages() {
           <div
             ref={skyRef}
             className="relative rounded-[2.5rem] overflow-hidden border border-white/8 min-h-[380px] md:min-h-[440px]"
-            style={{ background: 'linear-gradient(180deg, #12122A 0%, #1B1233 55%, #241539 100%)' }}
+            style={{ background: 'linear-gradient(180deg, #3A2138 0%, #4A2640 55%, #55284A 100%)' }}
           >
             {/* 背景星点 */}
             {Array.from({ length: 40 }).map((_, i) => {
@@ -220,9 +220,9 @@ export function StarMessages() {
           </div>
 
           {/* 表单 */}
-          <form onSubmit={submit} className="max-w-xl mx-auto mt-8 rounded-3xl bg-card/80 border border-white/8 p-5 md:p-6 backdrop-blur">
+          <form onSubmit={submit} className="max-w-xl mx-auto mt-8 rounded-3xl bg-card border border-ink/8 p-5 md:p-6 shadow-[0_16px_44px_rgba(255,107,138,0.12)]">
             <div className="mb-4">
-              <label htmlFor="starNick" className="block text-sm font-medium mb-1.5 text-cream/90">
+              <label htmlFor="starNick" className="block text-sm font-medium mb-1.5 text-ink/90">
                 你的昵称
               </label>
               <input
@@ -232,11 +232,11 @@ export function StarMessages() {
                 onChange={(e) => setNick(e.target.value)}
                 maxLength={12}
                 placeholder="例：果小糖（留空就是匿名小星星）"
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 text-[15px] placeholder:text-mute/60 focus:outline-none focus:border-pink/60 focus:bg-white/8 transition-colors"
+                className="w-full rounded-xl bg-cream border border-ink/10 px-4 py-2.5 text-[15px] placeholder:text-mute/70 focus:outline-none focus:border-pink/60 focus:bg-white transition-colors"
               />
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="starMsg" className="block text-sm font-medium mb-1.5 text-cream/90">
+              <label htmlFor="starMsg" className="block text-sm font-medium mb-1.5 text-ink/90">
                 想对果子说的话
               </label>
               <textarea
@@ -247,7 +247,7 @@ export function StarMessages() {
                 rows={2}
                 required
                 placeholder="写点什么吧，限 50 字～"
-                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 text-[15px] placeholder:text-mute/60 focus:outline-none focus:border-pink/60 focus:bg-white/8 transition-colors resize-none"
+                className="w-full rounded-xl bg-cream border border-ink/10 px-4 py-2.5 text-[15px] placeholder:text-mute/70 focus:outline-none focus:border-pink/60 focus:bg-white transition-colors resize-none"
               />
               <span className="absolute right-3 bottom-2 text-xs text-mute/70 pointer-events-none">
                 {text.length} / {content.messages.maxLength}
@@ -255,7 +255,7 @@ export function StarMessages() {
             </div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-pink text-white font-medium py-3 hover:bg-hotpink hover:-translate-y-0.5 transition-all shadow-[0_8px_28px_rgba(255,111,165,0.35)]"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-pink text-white font-medium py-3 hover:bg-hotpink hover:-translate-y-0.5 transition-all shadow-[0_8px_28px_rgba(255,107,138,0.4)]"
             >
               <svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true">
                 <path d="M50 2 C54 32 68 46 98 50 C68 54 54 68 50 98 C46 68 32 54 2 50 C32 46 46 32 50 2 Z" fill="currentColor" />

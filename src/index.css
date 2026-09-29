@@ -1,17 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  /* 暗夜爱豆舞台配色（无绿色） */
-  --color-ink: #0B0B13;
-  --color-surface: #13131C;
-  --color-card: #1A1A26;
-  --color-cream: #F5F2EA;
-  --color-mute: #9B96A8;
-  --color-pink: #FF6FA5;
-  --color-hotpink: #FF4D8D;
-  --color-violet: #8B7CFF;
-  --color-amber: #FFC95E;
-  --color-cyan: #6DE5F2;
+  /* 奶油蜜桃配色（浅色甜系） */
+  --color-ink: #4A3540;
+  --color-surface: #FFF0F4;
+  --color-card: #FFFFFF;
+  --color-cream: #FFF8F3;
+  --color-mute: #A08488;
+  --color-pink: #FF6B8A;
+  --color-hotpink: #F54E77;
+  --color-violet: #B583F0;
+  --color-amber: #FFB26B;
 
   --font-display: "ZCOOL KuaiLe", "Noto Sans SC", "PingFang SC", sans-serif;
   --font-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
@@ -20,8 +19,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-cream);
+  background: var(--color-cream);
+  color: var(--color-ink);
   font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -76,9 +75,9 @@ section { scroll-margin-top: 72px; }
   width: 72px;
   height: 22px;
   transform: translateX(-50%) rotate(-3deg);
-  background: rgba(255, 201, 94, 0.75);
+  background: rgba(255, 178, 107, 0.8);
   border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(74, 53, 64, 0.12);
 }
 
 /* ---------- 星星留言 ---------- */

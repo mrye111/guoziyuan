@@ -11,11 +11,11 @@ function Star() {
 export function Marquee() {
   const row = [...marqueeItems, ...marqueeItems];
   return (
-    <div className="border-y border-white/5 bg-surface/70 py-3.5 overflow-hidden" aria-hidden="true">
+    <div className="border-y border-ink/8 bg-surface py-3.5 overflow-hidden" aria-hidden="true">
       <div className="marquee-track items-center gap-8 text-sm tracking-[0.2em] text-mute">
         {row.map((item, i) => (
           <span key={i} className="flex items-center gap-8 whitespace-nowrap">
-            <span className={i % 2 ? 'text-cream/80' : ''}>{item}</span>
+            <span className={i % 2 ? 'text-ink/80' : ''}>{item}</span>
             <span className={i % 3 === 0 ? 'text-pink' : i % 3 === 1 ? 'text-violet' : 'text-amber'}>
               <Star />
             </span>

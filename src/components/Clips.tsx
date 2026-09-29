@@ -6,7 +6,7 @@ import { SectionHead } from './SectionHead';
 export function Clips() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section id="clips" className="py-24 md:py-32 bg-surface/50">
+    <section id="clips" className="py-24 md:py-32 bg-surface">
       <div className="max-w-6xl mx-auto px-5">
         <SectionHead tag="Highlight Clips" title="高能切片" sub="错过直播？来这里补课名场面" accent="#8B7CFF" />
         <div ref={ref} className="reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -16,11 +16,11 @@ export function Clips() {
               href={c.url}
               target="_blank"
               rel="noopener"
-              className="group rounded-3xl overflow-hidden bg-card border border-white/5 transition-all duration-200 hover:-translate-y-1.5 hover:border-pink/30 hover:shadow-[0_16px_44px_rgba(255,111,165,0.16)]"
+              className="group rounded-3xl overflow-hidden bg-card border border-ink/8 transition-all duration-200 hover:-translate-y-1.5 hover:border-pink/40 hover:shadow-[0_16px_44px_rgba(255,107,138,0.22)]"
             >
               <div className="relative aspect-video">
                 <div dangerouslySetInnerHTML={{ __html: clipCover(c.theme, c.fruit, i) }} className="absolute inset-0" />
-                <span className="absolute top-3 left-3 rounded-full bg-ink/60 backdrop-blur px-3 py-1 text-xs text-cream/90">
+                <span className="absolute top-3 left-3 rounded-full bg-white/75 backdrop-blur px-3 py-1 text-xs text-ink/85 shadow-sm">
                   {c.platform}
                 </span>
                 <span className="absolute inset-0 flex items-center justify-center">

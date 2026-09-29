@@ -24,7 +24,7 @@ const ICONS = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-surface/60 py-14 text-center">
+    <footer className="border-t border-ink/8 bg-surface py-14 text-center">
       <p className="font-display text-xl flex items-center justify-center gap-2">
         <svg viewBox="0 0 100 100" className="w-5 h-5" aria-hidden="true">
           <polygon points="50,6 62,37 95,37 68,57 77,90 50,70 23,90 32,57 5,37 38,37" fill="#FFC95E" stroke="#FFC95E" strokeWidth="8" strokeLinejoin="round" />
@@ -40,7 +40,7 @@ export function Footer() {
             rel="noopener"
             title={s.name}
             aria-label={`果子的${s.name}主页`}
-            className="w-11 h-11 rounded-full bg-card border border-white/8 text-cream/80 flex items-center justify-center transition-all hover:-translate-y-1 hover:bg-pink hover:text-white hover:border-pink"
+            className="w-11 h-11 rounded-full bg-card border border-ink/10 text-ink/75 flex items-center justify-center transition-all hover:-translate-y-1 hover:bg-pink hover:text-white hover:border-pink"
           >
             {ICONS[s.icon]}
           </a>

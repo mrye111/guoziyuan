@@ -20,7 +20,7 @@ export function Nav() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-ink/75 backdrop-blur-xl border-b border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.35)]' : ''
+        scrolled ? 'bg-cream/80 backdrop-blur-xl border-b border-ink/8 shadow-[0_8px_32px_rgba(255,107,138,0.1)]' : ''
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
@@ -35,7 +35,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="hidden md:inline-block px-3.5 py-2 rounded-full text-sm whitespace-nowrap text-cream/85 hover:text-pink hover:bg-white/5 transition-colors"
+              className="hidden md:inline-block px-3.5 py-2 rounded-full text-sm whitespace-nowrap text-ink/75 hover:text-pink hover:bg-pink/8 transition-colors"
             >
               {l.label}
             </a>

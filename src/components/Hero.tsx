@@ -31,9 +31,9 @@ export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden flex flex-col">
       {/* 背景氛围：渐变 + 光斑 + 舞台灯柱 */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#181227] via-ink to-ink" aria-hidden="true" />
-      <div className="absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full bg-pink/12 blur-3xl" aria-hidden="true" />
-      <div className="absolute top-1/3 -right-32 w-[520px] h-[520px] rounded-full bg-violet/12 blur-3xl" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FFE4EE] via-cream to-cream" aria-hidden="true" />
+      <div className="absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full bg-pink/20 blur-3xl" aria-hidden="true" />
+      <div className="absolute top-1/3 -right-32 w-[520px] h-[520px] rounded-full bg-violet/15 blur-3xl" aria-hidden="true" />
       <div className="absolute inset-0 hidden lg:flex justify-between px-24 items-end opacity-40" aria-hidden="true">
         {['#FF6FA5', '#8B7CFF', '#FFC95E', '#8B7CFF'].map((c, i) => (
           <span
@@ -49,7 +49,7 @@ export function Hero() {
           {/* 文案列 */}
           <div className="text-center lg:text-left">
             {/* 直播状态 */}
-            <div className="inline-flex items-center gap-2.5 rounded-full bg-white/8 backdrop-blur-md border border-white/10 px-4 py-2 text-sm mb-6">
+            <div className="inline-flex items-center gap-2.5 rounded-full bg-white/75 backdrop-blur-md border border-pink/25 px-4 py-2 text-sm mb-6 shadow-[0_4px_16px_rgba(255,107,138,0.12)]">
               {live.isLive ? (
                 <>
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D6D] live-dot-on" />
@@ -61,7 +61,7 @@ export function Hero() {
               ) : (
                 <>
                   <span className="w-2.5 h-2.5 rounded-full bg-amber" />
-                  <span className="text-cream/90">{live.nextText}</span>
+                  <span className="text-ink/85">{live.nextText}</span>
                 </>
               )}
             </div>
@@ -90,7 +90,7 @@ export function Hero() {
               </a>
               <a
                 href="#clips"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-white/15 text-cream hover:border-pink/60 hover:text-pink hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border-2 border-ink/15 text-ink hover:border-pink/60 hover:text-pink hover:-translate-y-0.5 transition-all"
               >
                 补高能切片
               </a>

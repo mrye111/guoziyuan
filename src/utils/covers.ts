@@ -4,9 +4,9 @@ type ThemeKey = 'pink' | 'violet' | 'amber';
 type Fruit = 'apple' | 'peach' | 'strawberry';
 
 const THEMES: Record<ThemeKey, { bg: string; main: string }> = {
-  pink: { bg: '#2B1624', main: '#FF6FA5' },
-  violet: { bg: '#1B1830', main: '#8B7CFF' },
-  amber: { bg: '#2A2111', main: '#FFC95E' },
+  pink: { bg: '#FFE3EC', main: '#FF6B8A' },
+  violet: { bg: '#EFE7FF', main: '#B583F0' },
+  amber: { bg: '#FFF1DC', main: '#FFB26B' },
 };
 
 function fruitInner(type: Fruit): string {
@@ -72,8 +72,8 @@ export function clipCover(theme: ThemeKey, fruit: Fruit, seed: number): string {
   return `<svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" style="display:block;width:100%;height:100%">
     <rect width="400" height="225" fill="${t.bg}"/>
     ${sprinkles(rnd, 400, 225, t.main)}
-    <circle cx="272" cy="118" r="88" fill="${t.main}" opacity=".14"/>
-    <circle cx="272" cy="118" r="60" fill="${t.main}" opacity=".12"/>
+    <circle cx="272" cy="118" r="88" fill="#fff" opacity=".55"/>
+    <circle cx="272" cy="118" r="60" fill="#fff" opacity=".45"/>
     <g transform="translate(212 52) scale(1.25)">${fruitInner(fruit)}</g>
     <path d="M26 196 q12 -14 24 0 t24 0" stroke="${t.main}" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>
   </svg>`;
@@ -91,7 +91,7 @@ export function wallArt(theme: ThemeKey, fruit: Fruit, ratio: string, seed: numb
   return `<svg viewBox="0 0 ${w} ${h}" style="display:block;width:100%;height:auto">
     <rect width="${w}" height="${h}" fill="${t.bg}"/>
     ${sprinkles(rnd, w, h, t.main)}
-    <circle cx="${w / 2}" cy="${h / 2}" r="${Math.round(Math.min(w, h) * 0.36)}" fill="${t.main}" opacity=".14"/>
+    <circle cx="${w / 2}" cy="${h / 2}" r="${Math.round(Math.min(w, h) * 0.36)}" fill="#fff" opacity=".55"/>
     <g transform="translate(${fx} ${fy}) scale(${scale.toFixed(2)})">${fruitInner(fruit)}</g>
     <path d="M${Math.round(w * 0.12)} ${Math.round(h * 0.86)} q10 -12 20 0 t20 0" stroke="${t.main}" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>
   </svg>`;
