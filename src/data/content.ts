@@ -18,7 +18,7 @@ export interface Clip {
   title: string;
   plays: string;
   date: string;
-  platform: 'B站' | '抖音';
+  platform: '虎牙' | '抖音';
   url: string;
   theme: 'pink' | 'violet' | 'amber';
   fruit: 'apple' | 'peach' | 'strawberry';
@@ -43,11 +43,15 @@ export interface SeedMessage {
 
 const photo = (n: number) => `${import.meta.env.BASE_URL}photos/photo-${String(n).padStart(2, '0')}.jpg`;
 
+const HUYA_URL = 'https://www.huya.com/158924';
+const DOUYIN_URL =
+  'https://www.douyin.com/user/MS4wLjABAAAAwtjsL_j2iIWoyrQQfUXytyr97lmDiauG2yZ8wPWdJRHsOjUhH_9d_R1CLPx66cTH?from_tab_name=main';
+
 export const content = {
   live: {
     isLive: false,
     liveText: '果子正在直播，快来看！',
-    liveUrl: 'https://live.bilibili.com/',
+    liveUrl: 'https://www.huya.com/158924',
     nextText: '下次直播：周六晚 8 点',
   } as LiveConfig,
 
@@ -62,12 +66,12 @@ export const content = {
   ] as ScheduleDay[],
 
   clips: [
-    { title: '【高能】果子一嗓子把队友唱哭了', plays: '12.6万', date: '2026-09-20', platform: 'B站', url: 'https://www.bilibili.com/', theme: 'pink', fruit: 'apple' },
-    { title: '名场面：果子的反向 Flag 现场', plays: '8.9万', date: '2026-09-14', platform: 'B站', url: 'https://www.bilibili.com/', theme: 'violet', fruit: 'peach' },
-    { title: '三分钟看完果子的首播名场面', plays: '15.2万', date: '2026-09-06', platform: '抖音', url: 'https://www.douyin.com/', theme: 'amber', fruit: 'strawberry' },
-    { title: '果子与猫の巅峰对决', plays: '6.4万', date: '2026-08-28', platform: 'B站', url: 'https://www.bilibili.com/', theme: 'violet', fruit: 'apple' },
-    { title: '深夜电台：果子读留言读到哽咽', plays: '9.8万', date: '2026-08-20', platform: '抖音', url: 'https://www.douyin.com/', theme: 'pink', fruit: 'peach' },
-    { title: '果子教你做苹果派（翻车了）', plays: '11.1万', date: '2026-08-12', platform: 'B站', url: 'https://www.bilibili.com/', theme: 'amber', fruit: 'strawberry' },
+    { title: '【高能】果子一嗓子把队友唱哭了', plays: '12.6万', date: '2026-09-20', platform: '虎牙', url: HUYA_URL, theme: 'pink', fruit: 'apple' },
+    { title: '名场面：果子的反向 Flag 现场', plays: '8.9万', date: '2026-09-14', platform: '虎牙', url: HUYA_URL, theme: 'violet', fruit: 'peach' },
+    { title: '三分钟看完果子的首播名场面', plays: '15.2万', date: '2026-09-06', platform: '抖音', url: DOUYIN_URL, theme: 'amber', fruit: 'strawberry' },
+    { title: '果子与猫の巅峰对决', plays: '6.4万', date: '2026-08-28', platform: '虎牙', url: HUYA_URL, theme: 'violet', fruit: 'apple' },
+    { title: '深夜电台：果子读留言读到哽咽', plays: '9.8万', date: '2026-08-20', platform: '抖音', url: DOUYIN_URL, theme: 'pink', fruit: 'peach' },
+    { title: '果子教你做苹果派（翻车了）', plays: '11.1万', date: '2026-08-12', platform: '虎牙', url: HUYA_URL, theme: 'amber', fruit: 'strawberry' },
   ] as Clip[],
 
   /* Hero 照片轮播（精选） */
@@ -125,9 +129,8 @@ export const content = {
   },
 
   social: [
-    { name: 'B站', icon: 'tv' as const, url: 'https://space.bilibili.com/' },
-    { name: '抖音', icon: 'music' as const, url: 'https://www.douyin.com/' },
-    { name: '微博', icon: 'at' as const, url: 'https://weibo.com/' },
+    { name: '虎牙', icon: 'tv' as const, url: HUYA_URL },
+    { name: '抖音', icon: 'music' as const, url: DOUYIN_URL },
   ],
 };
 
