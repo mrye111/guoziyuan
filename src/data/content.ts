@@ -70,6 +70,17 @@ export const content = {
     { title: '果子教你做苹果派（翻车了）', plays: '11.1万', date: '2026-08-12', platform: 'B站', url: 'https://www.bilibili.com/', theme: 'amber', fruit: 'strawberry' },
   ] as Clip[],
 
+  /* Hero 照片轮播（精选） */
+  heroPhotos: [
+    { src: photo(18), caption: '女仆果的 wink 暴击' },
+    { src: photo(3), caption: '直播间的眼镜果' },
+    { src: photo(15), caption: '营业中的爱豆果' },
+    { src: photo(16), caption: '赛道酷盖果' },
+    { src: photo(4), caption: '和狗狗们的一天' },
+    { src: photo(14), caption: '街头卫衣果' },
+    { src: photo(1), caption: '今日份自拍' },
+  ] as Photo[],
+
   /* 果子的日常（真人照片墙） */
   photos: [
     { src: photo(3), caption: '眼镜果出击' },

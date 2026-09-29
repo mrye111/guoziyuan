@@ -1,20 +1,7 @@
-import { lazy, Suspense, useState } from 'react';
+import { useState } from 'react';
 import { content } from '../data/content';
+import { HeroCarousel } from './HeroCarousel';
 import { burstHearts } from '../utils/hearts';
-
-const GuoziStage = lazy(() => import('../stage/GuoziStage').then((m) => ({ default: m.GuoziStage })));
-
-/** 舞台加载占位：呼吸光晕 + 小星星 */
-function StageSkeleton() {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="absolute w-[60vw] h-[60vw] max-w-[520px] max-h-[520px] rounded-full bg-hotpink/15 blur-3xl animate-pulse" />
-      <svg viewBox="0 0 100 100" className="relative w-10 h-10 text-pink/60 animate-pulse" aria-hidden="true">
-        <polygon points="50,6 62,37 95,37 68,57 77,90 50,70 23,90 32,57 5,37 38,37" fill="currentColor" stroke="currentColor" strokeWidth="8" strokeLinejoin="round" />
-      </svg>
-    </div>
-  );
-}
 
 const CHEER_KEY = 'guoziyuan.cheerCount.v2';
 
@@ -28,8 +15,8 @@ export function Hero() {
     }
   });
 
-  const handleCheer = (x: number, y: number) => {
-    burstHearts(x, y, 9);
+  const handleCheer = (e: React.MouseEvent) => {
+    burstHearts(e.clientX, e.clientY, 9);
     setCheers((c) => {
       const n = c + 1;
       try {
@@ -43,20 +30,24 @@ export function Hero() {
 
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden flex flex-col">
-      {/* 3D 舞台 */}
-      <div className="absolute inset-0">
-        <Suspense fallback={<StageSkeleton />}>
-          <GuoziStage onCheer={handleCheer} />
-        </Suspense>
+      {/* 背景氛围：渐变 + 光斑 + 舞台灯柱 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#181227] via-ink to-ink" aria-hidden="true" />
+      <div className="absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full bg-pink/12 blur-3xl" aria-hidden="true" />
+      <div className="absolute top-1/3 -right-32 w-[520px] h-[520px] rounded-full bg-violet/12 blur-3xl" aria-hidden="true" />
+      <div className="absolute inset-0 hidden lg:flex justify-between px-24 items-end opacity-40" aria-hidden="true">
+        {['#FF6FA5', '#8B7CFF', '#FFC95E', '#8B7CFF'].map((c, i) => (
+          <span
+            key={i}
+            className="w-1.5 rounded-full hero-light-bar"
+            style={{ height: `${52 + (i % 2) * 18}%`, background: `linear-gradient(to top, ${c}66, transparent)`, animationDelay: `${i * 0.7}s` }}
+          />
+        ))}
       </div>
-      {/* 底部压暗渐变，保证文案可读 */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent hidden lg:block" />
 
-      {/* 文案层 */}
-      <div className="relative z-10 flex-1 flex items-end lg:items-center pointer-events-none">
-        <div className="max-w-6xl mx-auto px-5 w-full pb-24 lg:pb-0">
-          <div className="max-w-xl pointer-events-auto">
+      <div className="relative z-10 flex-1 flex items-center max-w-6xl mx-auto px-5 w-full pt-24 pb-14">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center w-full">
+          {/* 文案列 */}
+          <div className="text-center lg:text-left">
             {/* 直播状态 */}
             <div className="inline-flex items-center gap-2.5 rounded-full bg-white/8 backdrop-blur-md border border-white/10 px-4 py-2 text-sm mb-6">
               {live.isLive ? (
@@ -81,11 +72,11 @@ export function Hero() {
               <span className="block text-[clamp(64px,14vw,150px)]">果子</span>
               <span className="block text-[clamp(28px,5.5vw,56px)] text-outline tracking-[0.12em] mt-2">欢迎来到果子园</span>
             </h1>
-            <p className="mt-5 text-mute text-[15px] sm:text-base leading-relaxed max-w-md">
+            <p className="mt-5 text-mute text-[15px] sm:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
               这里装着果子的每一次高能瞬间：直播日历、切片补课、日常碎片和一片为TA点亮的星空。
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3.5">
+            <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3.5">
               <a
                 href={live.liveUrl}
                 target="_blank"
@@ -103,17 +94,26 @@ export function Hero() {
               >
                 补高能切片
               </a>
+              <button
+                type="button"
+                onClick={handleCheer}
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-pink hover:bg-pink/10 hover:-translate-y-0.5 transition-all"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+                打 Call{cheers > 0 ? ` ×${cheers}` : ''}
+              </button>
             </div>
-
-            <p className="mt-6 text-xs text-mute/80 tracking-wide">
-              {cheers > 0 ? `你已经为果子打 Call ${cheers} 次啦 · ` : ''}点小舞台上的果子，TA 会回应你哦
-            </p>
           </div>
+
+          {/* 照片轮播列 */}
+          <HeroCarousel photos={content.heroPhotos} />
         </div>
       </div>
 
       {/* 下滑提示 */}
-      <div className="relative z-10 pb-6 flex justify-center pointer-events-none" aria-hidden="true">
+      <div className="relative z-10 pb-6 flex justify-center" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mute animate-bounce">
           <path d="m6 9 6 6 6-6" />
         </svg>
