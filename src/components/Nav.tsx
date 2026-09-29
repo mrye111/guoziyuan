@@ -5,6 +5,7 @@ const LINKS = [
   { href: '#calendar', label: '直播日历' },
   { href: '#clips', label: '高能切片' },
   { href: '#daily', label: '果子的日常' },
+  { href: '#memes', label: '表情包' },
   { href: '#stars', label: '星光留言' },
 ];
 

@@ -5,6 +5,7 @@ import { LiveCalendar } from './components/LiveCalendar';
 import { Clips } from './components/Clips';
 import { PhotoWall } from './components/PhotoWall';
 import { FanWall } from './components/FanWall';
+import { MemePlaza } from './components/MemePlaza';
 import { StarMessages } from './components/StarMessages';
 import { Footer } from './components/Footer';
 
@@ -19,6 +20,7 @@ export function App() {
         <Clips />
         <PhotoWall />
         <FanWall />
+        <MemePlaza />
         <StarMessages />
       </main>
       <Footer />

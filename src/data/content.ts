@@ -35,6 +35,12 @@ export interface Photo {
   caption: string;
 }
 
+export interface Meme {
+  src: string;
+  top?: string;
+  bottom?: string;
+}
+
 export interface FanWork {
   author: string;
   theme: 'pink' | 'violet' | 'amber';
@@ -101,6 +107,20 @@ export const content = {
     { src: photo(12), caption: '周末碎片' },
   ] as Photo[],
 
+  /* 表情包广场·内置表情包（照片 + 名场面字幕） */
+  memes: [
+    { src: photo(18), bottom: '让我看看谁还没睡' },
+    { src: photo(3), top: '果子的凝视' },
+    { src: photo(15), bottom: '耶！下班！' },
+    { src: photo(16), top: '别惹我' },
+    { src: photo(4), top: '和家人们贴贴' },
+    { src: photo(14), bottom: '别拦我上班' },
+    { src: photo(13), top: '听懂掌声' },
+    { src: photo(1), bottom: '果式无语' },
+    { src: photo(2), top: '已躺平', bottom: '勿 cue' },
+    { src: photo(17), bottom: '晚安安' },
+  ] as Meme[],
+
   fanwall: {
     tip: '想上墙？投稿到',
     email: 'guoziyuan@example.com',
@@ -134,4 +154,4 @@ export const content = {
   ],
 };
 
-export const marqueeItems = ['高能切片', '每周直播', '果子的日常', '粉丝二创', '星光留言', '为爱发电'];
+export const marqueeItems = ['高能切片', '每周直播', '果子的日常', '表情包广场', '粉丝二创', '星光留言', '为爱发电'];

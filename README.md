@@ -52,6 +52,7 @@ npm run preview  # 本地预览构建产物
 - `clips`：切片卡片（封面插画由 `theme`/`fruit` 程序生成）
 - `heroPhotos`：首屏照片轮播（图片放 `public/photos/`）
 - `photos`：果子的日常照片墙
+- `memes`：表情包广场的内置表情包（照片 + 上/下方字幕）
 - `fanwall` / `messages` / `social`：粉丝墙、留言配置、平台入口（**记得换成真实链接**）
 
 ## 部署
@@ -62,4 +63,4 @@ npm run preview  # 本地预览构建产物
 
 ## 边界
 
-星光留言存在访问者自己的浏览器 localStorage 里（页面上有明确提示）。原始照片素材放在本地 `果子素材/`（已 gitignore），仓库只提交 `public/photos/` 里的副本。
+星光留言存在访问者浏览器 localStorage；用户上传的表情包存在访问者浏览器 IndexedDB（≤40 张，GIF ≤2.5MB 原样保留动图，其余压缩到 800px 内），均只有自己可见，页面上有明确提示。原始照片素材放在本地 `果子素材/`（已 gitignore），仓库只提交 `public/photos/` 里的副本。

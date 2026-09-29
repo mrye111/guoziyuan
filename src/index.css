@@ -147,6 +147,18 @@ section { scroll-margin-top: 72px; }
 }
 .calendar-fade { animation: calendar-fade 0.3s ease-out; }
 
+/* ---------- 表情包字幕（白字黑边经典风格） ---------- */
+.meme-text {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-shadow:
+    -2px -2px 0 #1a1a1a, 2px -2px 0 #1a1a1a,
+    -2px 2px 0 #1a1a1a, 2px 2px 0 #1a1a1a,
+    0 3px 3px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
 /* ---------- 滚动条 ---------- */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
