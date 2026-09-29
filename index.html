@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>果子园 · 主播果子的官方应援小站</title>
+  <meta name="description" content="果子园——主播果子的官方应援小站。看直播动态、补高能切片、逛粉丝墙，再到留言树上挂一颗属于你的小果子。" />
+  <meta property="og:title" content="果子园 · 主播果子的官方应援小站" />
+  <meta property="og:description" content="看直播动态、补高能切片、逛粉丝墙，再到留言树上挂一颗属于你的小果子。" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- ============ 导航栏（吸顶） ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="回到果子园顶部">
+        <svg class="brand-apple" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 34 C 36 20 12 30 10 54 C 8 78 28 94 50 94 C 72 94 92 78 90 54 C 88 30 64 20 50 34 Z" fill="#7BC96F"/>
+          <path d="M50 32 C 50 24 48 18 44 12" stroke="#8B6B4A" stroke-width="6" stroke-linecap="round" fill="none"/>
+          <path d="M46 14 C 37 5 24 7 18 16 C 25 25 40 25 46 14 Z" fill="#4E9445"/>
+          <ellipse cx="30" cy="48" rx="9" ry="5" fill="#fff" opacity=".4" transform="rotate(-24 30 48)"/>
+        </svg>
+        <span class="brand-name">果子园</span>
+      </a>
+      <nav class="nav-links" aria-label="站内导航">
+        <a href="#calendar">直播日历</a>
+        <a href="#clips">高能切片</a>
+        <a href="#fanwall">粉丝墙</a>
+        <a href="#tree" class="nav-cta">留言树</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ 首屏 Hero ============ -->
+    <section class="hero">
+      <div class="float-layer" id="floatLayer" aria-hidden="true"></div>
+
+      <svg class="sticker sticker-leaf" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M20 80 C 10 50 30 20 70 14 C 76 48 56 76 20 80 Z" fill="#7BC96F"/>
+        <path d="M26 72 C 40 56 52 40 62 22" stroke="#4E9445" stroke-width="5" stroke-linecap="round" fill="none" opacity=".6"/>
+      </svg>
+      <svg class="sticker sticker-star" viewBox="0 0 100 100" aria-hidden="true">
+        <polygon points="50,10 61,39 92,39 67,58 75,88 50,70 25,88 33,58 8,39 39,39" fill="#FFE08A" stroke="#FFE08A" stroke-width="9" stroke-linejoin="round"/>
+      </svg>
+
+      <div class="container hero-inner">
+        <div class="live-banner" id="liveBanner" role="status"></div>
+
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1 class="hero-title" id="heroTitle">欢迎来到果子园</h1>
+            <p class="hero-sub">主播果子的官方应援小站</p>
+            <p class="hero-desc">看直播动态、补高能切片、逛粉丝墙，再到留言树上挂一颗属于你的小果子。</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" id="cheerBtn" type="button">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                </svg>
+                为果子打 Call
+              </button>
+              <a class="btn btn-ghost" href="#tree">去留言树逛逛</a>
+            </div>
+            <p class="hero-cheer-count" id="cheerCount" aria-live="polite"></p>
+          </div>
+
+          <div class="hero-mascot" aria-hidden="true">
+            <div class="mascot-drop">
+              <svg class="mascot-idle" viewBox="0 0 220 240">
+                <ellipse cx="110" cy="224" rx="54" ry="10" fill="#7BC96F" opacity=".18"/>
+                <path d="M48 138 C 36 132 28 122 26 110" stroke="#5FA854" stroke-width="8" stroke-linecap="round" fill="none"/>
+                <path d="M172 138 C 184 132 192 122 194 110" stroke="#5FA854" stroke-width="8" stroke-linecap="round" fill="none"/>
+                <path d="M110 64 C 88 46 52 54 44 98 C 36 150 68 210 110 210 C 152 210 184 150 176 98 C 168 54 132 46 110 64 Z" fill="#7BC96F"/>
+                <ellipse cx="72" cy="92" rx="14" ry="8" fill="#fff" opacity=".3" transform="rotate(-28 72 92)"/>
+                <path d="M110 60 C 110 48 107 40 102 32" stroke="#8B6B4A" stroke-width="7" stroke-linecap="round" fill="none"/>
+                <path d="M104 34 C 94 22 76 22 68 32 C 78 44 96 46 104 34 Z" fill="#5FA854"/>
+                <path d="M82 122 q7 -9 14 0" stroke="#4A3F35" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M124 122 q7 -9 14 0" stroke="#4A3F35" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M103 140 q7 8 14 0" stroke="#4A3F35" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <ellipse cx="70" cy="134" rx="8" ry="5" fill="#FFB6C1" opacity=".85"/>
+                <ellipse cx="150" cy="134" rx="8" ry="5" fill="#FFB6C1" opacity=".85"/>
+                <ellipse cx="92" cy="212" rx="12" ry="6" fill="#5FA854"/>
+                <ellipse cx="128" cy="212" rx="12" ry="6" fill="#5FA854"/>
+                <path d="M180 60 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z" fill="#FFE08A"/>
+                <path d="M32 70 l2.2 6 6 2.2 -6 2.2 -2.2 6 -2.2 -6 -6 -2.2 6 -2.2 Z" fill="#FFB6C1"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg class="divider-wave" viewBox="0 0 260 20" fill="none"><path d="M4 10 Q 20 2 36 10 T 68 10 T 100 10 T 132 10 T 164 10 T 196 10 T 228 10 T 256 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 11"/></svg>
+      <span class="divider-fruit">
+        <svg viewBox="0 0 100 100"><path d="M50 34 C 36 20 12 30 10 54 C 8 78 28 94 50 94 C 72 94 92 78 90 54 C 88 30 64 20 50 34 Z" fill="#7BC96F"/><path d="M50 32 C 50 24 48 18 44 12" stroke="#8B6B4A" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M46 14 C 37 5 24 7 18 16 C 25 25 40 25 46 14 Z" fill="#4E9445"/></svg>
+      </span>
+    </div>
+
+    <!-- ============ 直播日历 ============ -->
+    <section class="section" id="calendar">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">Weekly Schedule</span>
+          <h2 class="section-title">直播日历</h2>
+          <svg class="title-underline" viewBox="0 0 120 12" fill="none" aria-hidden="true"><path d="M3 8 Q 18 2 33 8 T 63 8 T 93 8 T 117 8" stroke="#FFB6C1" stroke-width="4" stroke-linecap="round"/></svg>
+          <p class="section-sub">本周果子出没时间表</p>
+        </header>
+        <div class="calendar-row reveal" id="calendarRow"></div>
+        <p class="calendar-tip reveal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/>
+          </svg>
+          记得设好小闹钟哦
+        </p>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg class="divider-wave" viewBox="0 0 260 20" fill="none"><path d="M4 10 Q 20 2 36 10 T 68 10 T 100 10 T 132 10 T 164 10 T 196 10 T 228 10 T 256 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 11"/></svg>
+      <span class="divider-fruit">
+        <svg viewBox="0 0 100 100"><path d="M50 36 C 30 22 8 36 10 62 C 12 86 32 96 50 96 C 68 96 88 86 90 62 C 92 36 70 22 50 36 Z" fill="#FFB6C1"/><path d="M46 18 C 36 8 22 10 16 20 C 24 30 40 30 46 18 Z" fill="#4E9445"/><path d="M50 34 C 50 26 48 20 45 14" stroke="#8B6B4A" stroke-width="5" stroke-linecap="round" fill="none"/></svg>
+      </span>
+    </div>
+
+    <!-- ============ 高能切片 ============ -->
+    <section class="section section-alt" id="clips">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">Highlight Clips</span>
+          <h2 class="section-title">高能切片</h2>
+          <svg class="title-underline" viewBox="0 0 120 12" fill="none" aria-hidden="true"><path d="M3 8 Q 18 2 33 8 T 63 8 T 93 8 T 117 8" stroke="#FFD166" stroke-width="4" stroke-linecap="round"/></svg>
+          <p class="section-sub">错过直播？来这里补课名场面</p>
+        </header>
+        <div class="clip-grid reveal" id="clipGrid"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg class="divider-wave" viewBox="0 0 260 20" fill="none"><path d="M4 10 Q 20 2 36 10 T 68 10 T 100 10 T 132 10 T 164 10 T 196 10 T 228 10 T 256 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 11"/></svg>
+      <span class="divider-fruit">
+        <svg viewBox="0 0 100 100"><path d="M50 30 C 76 30 90 44 86 62 C 82 82 62 96 50 96 C 38 96 18 82 14 62 C 10 44 24 30 50 30 Z" fill="#FF8FA3"/><path d="M30 32 C 34 18 42 12 50 12 C 58 12 66 18 70 32 C 60 25 40 25 30 32 Z" fill="#5FA854"/><g fill="#FFE08A"><ellipse cx="36" cy="52" rx="2.4" ry="3.2"/><ellipse cx="52" cy="48" rx="2.4" ry="3.2"/><ellipse cx="66" cy="54" rx="2.4" ry="3.2"/><ellipse cx="32" cy="68" rx="2.4" ry="3.2"/><ellipse cx="50" cy="64" rx="2.4" ry="3.2"/><ellipse cx="68" cy="70" rx="2.4" ry="3.2"/><ellipse cx="42" cy="80" rx="2.4" ry="3.2"/><ellipse cx="58" cy="82" rx="2.4" ry="3.2"/></g></svg>
+      </span>
+    </div>
+
+    <!-- ============ 粉丝墙 ============ -->
+    <section class="section" id="fanwall">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">Fan Works</span>
+          <h2 class="section-title">粉丝墙</h2>
+          <svg class="title-underline" viewBox="0 0 120 12" fill="none" aria-hidden="true"><path d="M3 8 Q 18 2 33 8 T 63 8 T 93 8 T 117 8" stroke="#7BC96F" stroke-width="4" stroke-linecap="round"/></svg>
+          <p class="section-sub">果园里多才多艺的大家</p>
+        </header>
+        <p class="wall-tip reveal" id="wallTip"></p>
+        <div class="wall-masonry reveal" id="wallMasonry"></div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true">
+      <svg class="divider-wave" viewBox="0 0 260 20" fill="none"><path d="M4 10 Q 20 2 36 10 T 68 10 T 100 10 T 132 10 T 164 10 T 196 10 T 228 10 T 256 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.5 11"/></svg>
+      <span class="divider-fruit">
+        <svg viewBox="0 0 100 100"><path d="M20 80 C 10 50 30 20 70 14 C 76 48 56 76 20 80 Z" fill="#7BC96F"/><path d="M26 72 C 40 56 52 40 62 22" stroke="#4E9445" stroke-width="5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      </span>
+    </div>
+
+    <!-- ============ 留言树 ============ -->
+    <section class="section section-alt" id="tree">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">Message Tree</span>
+          <h2 class="section-title">留言树</h2>
+          <svg class="title-underline" viewBox="0 0 120 12" fill="none" aria-hidden="true"><path d="M3 8 Q 18 2 33 8 T 63 8 T 93 8 T 117 8" stroke="#FFB6C1" stroke-width="4" stroke-linecap="round"/></svg>
+          <p class="section-sub">写一句话，让它长成树上的一颗小果子</p>
+        </header>
+
+        <div class="tree-stage reveal">
+          <button class="sound-toggle" id="soundBtn" type="button" aria-pressed="true" title="音效开关">
+            <svg class="icon-sound-on" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg class="icon-sound-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+
+          <div class="tree-wrap" id="treeWrap">
+            <svg class="tree-svg" viewBox="0 0 420 380" aria-hidden="true">
+              <ellipse cx="210" cy="356" rx="160" ry="16" fill="#E3F3D8"/>
+              <path d="M186 356 C 190 320 188 280 182 248 C 181 242 186 236 192 240 L 206 250 L 222 238 C 228 234 234 239 233 246 C 229 280 229 320 234 356 Q 210 366 186 356 Z" fill="#C08B62"/>
+              <path d="M196 268 C 176 252 158 244 138 240" stroke="#C08B62" stroke-width="13" stroke-linecap="round" fill="none"/>
+              <path d="M224 264 C 246 250 266 242 286 238" stroke="#C08B62" stroke-width="13" stroke-linecap="round" fill="none"/>
+              <circle cx="128" cy="176" r="72" fill="#8ED181"/>
+              <circle cx="294" cy="172" r="74" fill="#6CBD5E"/>
+              <circle cx="182" cy="94" r="48" fill="#8ED181"/>
+              <circle cx="252" cy="96" r="44" fill="#7BC96F"/>
+              <circle cx="210" cy="160" r="98" fill="#7BC96F"/>
+              <circle cx="152" cy="216" r="44" fill="#7BC96F"/>
+              <circle cx="268" cy="214" r="46" fill="#8ED181"/>
+              <circle cx="150" cy="118" r="5" fill="#fff" opacity=".35"/>
+              <circle cx="282" cy="128" r="4" fill="#fff" opacity=".3"/>
+              <circle cx="222" cy="66" r="4" fill="#fff" opacity=".3"/>
+              <path d="M197 302 q4 5 8 0" stroke="#4A3F35" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M215 302 q4 5 8 0" stroke="#4A3F35" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M206 316 q4 4 8 0" stroke="#4A3F35" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <ellipse cx="190" cy="311" rx="4" ry="2.5" fill="#FFB6C1" opacity=".8"/>
+              <ellipse cx="230" cy="311" rx="4" ry="2.5" fill="#FFB6C1" opacity=".8"/>
+            </svg>
+            <div class="fruit-layer" id="fruitLayer"></div>
+          </div>
+          <p class="tree-count" id="treeCount" aria-live="polite"></p>
+        </div>
+
+        <form class="tree-form reveal" id="treeForm">
+          <div class="field">
+            <label for="nickInput">你的昵称</label>
+            <input id="nickInput" name="nick" type="text" maxlength="12" placeholder="例：果小糖（留空就是匿名小果子）" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="msgInput">想对果子说的话</label>
+            <textarea id="msgInput" name="msg" rows="2" maxlength="50" placeholder="写点什么吧，限 50 字～" required></textarea>
+            <span class="char-count" id="charCount">0 / 50</span>
+          </div>
+          <button class="btn btn-primary tree-submit" type="submit">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            挂到树上
+          </button>
+          <p class="tree-notice">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span id="treeNotice">留言会保存在你的浏览器里（localStorage），只有你自己能看到哦～</span>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-tagline">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5FA854" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.1 2.8-.5 4.4 0 5.5.7z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+        果子园 · 用爱意浇灌每一天
+      </p>
+      <div class="footer-social" id="footerSocial"></div>
+      <p class="footer-note">果子园第一期 · 登录、打榜等更多玩法敬请期待</p>
+    </div>
+  </footer>
+
+  <noscript><p style="text-align:center;padding:2rem">果子园需要开启 JavaScript 才能逛哦～</p></noscript>
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>
