@@ -3,3 +3,6 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+# 果子原始素材保留在本地，不进仓库（站点使用 public/photos 下的副本）
+果子素材/
+原型/
