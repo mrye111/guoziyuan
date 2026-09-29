@@ -18,7 +18,7 @@ interface Card {
   mine?: StoredMeme;
 }
 
-/* ---------- 图片处理：小 GIF 原样保留动图，其余缩到 800px 内 ---------- */
+/* ---------- 图片处理：≤8MB 的 GIF 原样保留动图，其余缩到 800px 内 ---------- */
 function readAsDataURL(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const r = new FileReader();
@@ -29,8 +29,11 @@ function readAsDataURL(file: File): Promise<string> {
 }
 
 function processFile(file: File): Promise<string> {
-  if (file.type === 'image/gif' && file.size < 2.5 * 1024 * 1024) {
+  if (file.type === 'image/gif' && file.size < 8 * 1024 * 1024) {
     return readAsDataURL(file);
+  }
+  if (file.type === 'image/gif') {
+    return Promise.reject(new Error('GIF 超过 8MB，动图会无法播放，已跳过'));
   }
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(file);
@@ -192,7 +195,7 @@ export function MemePlaza() {
               <line x1="12" y1="3" x2="12" y2="15" />
             </svg>
             <p className="mt-2 font-medium">点击选择或拖拽图片到这里</p>
-            <p className="mt-1 text-xs text-mute">支持多张 · GIF 动图原样保留 · 大图自动压缩 · 存在你的浏览器里，仅自己可见</p>
+            <p className="mt-1 text-xs text-mute">支持多张 · GIF ≤8MB 原样播放 · 大图自动压缩 · 存在你的浏览器里，仅自己可见</p>
             <input
               ref={fileRef}
               type="file"

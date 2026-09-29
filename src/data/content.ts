@@ -54,6 +54,7 @@ export interface SeedMessage {
 }
 
 const photo = (n: number) => `${import.meta.env.BASE_URL}photos/photo-${String(n).padStart(2, '0')}.jpg`;
+const meme = (n: number, ext: 'gif' | 'jpg') => `${import.meta.env.BASE_URL}memes/meme-${String(n).padStart(2, '0')}.${ext}`;
 
 const HUYA_URL = 'https://www.huya.com/158924';
 const DOUYIN_URL =
@@ -107,18 +108,17 @@ export const content = {
     { src: photo(12), caption: '周末碎片' },
   ] as Photo[],
 
-  /* 表情包广场·内置表情包（照片 + 名场面字幕） */
+  /* 表情包广场·内置表情包（粉丝群真实素材，GIF 直接播放） */
   memes: [
-    { src: photo(18), bottom: '让我看看谁还没睡' },
-    { src: photo(3), top: '果子的凝视' },
-    { src: photo(15), bottom: '耶！下班！' },
-    { src: photo(16), top: '别惹我' },
-    { src: photo(4), top: '和家人们贴贴' },
-    { src: photo(14), bottom: '别拦我上班' },
-    { src: photo(13), top: '听懂掌声' },
-    { src: photo(1), bottom: '果式无语' },
-    { src: photo(2), top: '已躺平', bottom: '勿 cue' },
-    { src: photo(17), bottom: '晚安安' },
+    { src: meme(1, 'gif'), bottom: '气鼓鼓' },
+    { src: meme(2, 'gif'), bottom: '盯——' },
+    { src: meme(3, 'gif'), bottom: '高冷果' },
+    { src: meme(4, 'gif'), bottom: '小小的眼睛大大的疑惑' },
+    { src: meme(5, 'gif'), bottom: '小丑竟是我自己' },
+    { src: meme(6, 'jpg'), bottom: '刚睡醒' },
+    { src: meme(7, 'jpg') },
+    { src: meme(8, 'jpg') },
+    { src: meme(9, 'jpg') },
   ] as Meme[],
 
   fanwall: {
