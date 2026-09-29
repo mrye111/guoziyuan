@@ -36,7 +36,7 @@ npm run preview  # 本地预览构建产物
 所有文案、排期、切片、照片、留言种子都在 [`src/data/content.ts`](src/data/content.ts)：
 
 - `live`：直播状态横幅（`isLive` 切换直播中/预告）
-- `schedule`：周一~周日排期
+- `streams`：历史直播记录（月历上标粉的日子，`date` 格式 `YYYY-MM-DD`，`url` 填当天回放地址）
 - `clips`：切片卡片（封面插画由 `theme`/`fruit` 程序生成）
 - `heroPhotos`：首屏照片轮播（图片放 `public/photos/`）
 - `photos`：果子的日常照片墙

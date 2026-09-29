@@ -140,6 +140,13 @@ section { scroll-margin-top: 72px; }
 }
 .hero-light-bar { animation: hero-light-bar 3.6s ease-in-out infinite; }
 
+/* ---------- 月历切换淡入 ---------- */
+@keyframes calendar-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.calendar-fade { animation: calendar-fade 0.3s ease-out; }
+
 /* ---------- 滚动条 ---------- */
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }

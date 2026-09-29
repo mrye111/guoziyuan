@@ -7,11 +7,12 @@ export interface LiveConfig {
   nextText: string;
 }
 
-export interface ScheduleDay {
-  weekday: string;
-  isLive: boolean;
-  time: string;
-  note: string;
+export interface StreamDay {
+  /** 格式 YYYY-MM-DD */
+  date: string;
+  title: string;
+  /** 当天回放地址 */
+  url: string;
 }
 
 export interface Clip {
@@ -55,15 +56,36 @@ export const content = {
     nextText: '下次直播：周六晚 8 点',
   } as LiveConfig,
 
-  schedule: [
-    { weekday: '周一', isLive: false, time: '', note: '休息日' },
-    { weekday: '周二', isLive: true, time: '20:00', note: '游戏回' },
-    { weekday: '周三', isLive: false, time: '', note: '休息日' },
-    { weekday: '周四', isLive: true, time: '20:00', note: '歌回' },
-    { weekday: '周五', isLive: true, time: '21:00', note: '深夜杂谈' },
-    { weekday: '周六', isLive: true, time: '20:00', note: '高能游戏日' },
-    { weekday: '周日', isLive: true, time: '15:00', note: '下午茶杂谈' },
-  ] as ScheduleDay[],
+  /* 历史直播记录：有记录的日子会在月历上标粉，点击看回放
+     （url 先占位为直播间，换成每天的实际回放地址即可） */
+  streams: [
+    { date: '2026-08-25', title: '游戏回', url: HUYA_URL },
+    { date: '2026-08-27', title: '歌回', url: HUYA_URL },
+    { date: '2026-08-28', title: '深夜杂谈', url: HUYA_URL },
+    { date: '2026-08-29', title: '高能游戏日', url: HUYA_URL },
+    { date: '2026-08-30', title: '下午茶杂谈', url: HUYA_URL },
+    { date: '2026-09-01', title: '游戏回', url: HUYA_URL },
+    { date: '2026-09-03', title: '歌回', url: HUYA_URL },
+    { date: '2026-09-04', title: '深夜杂谈', url: HUYA_URL },
+    { date: '2026-09-05', title: '高能游戏日', url: HUYA_URL },
+    { date: '2026-09-06', title: '下午茶杂谈', url: HUYA_URL },
+    { date: '2026-09-08', title: '游戏回', url: HUYA_URL },
+    { date: '2026-09-10', title: '歌回', url: HUYA_URL },
+    { date: '2026-09-11', title: '深夜杂谈', url: HUYA_URL },
+    { date: '2026-09-12', title: '高能游戏日', url: HUYA_URL },
+    { date: '2026-09-13', title: '下午茶杂谈', url: HUYA_URL },
+    { date: '2026-09-15', title: '游戏回', url: HUYA_URL },
+    { date: '2026-09-17', title: '歌回', url: HUYA_URL },
+    { date: '2026-09-18', title: '深夜杂谈', url: HUYA_URL },
+    { date: '2026-09-19', title: '高能游戏日', url: HUYA_URL },
+    { date: '2026-09-20', title: '下午茶杂谈', url: HUYA_URL },
+    { date: '2026-09-22', title: '游戏回', url: HUYA_URL },
+    { date: '2026-09-24', title: '歌回', url: HUYA_URL },
+    { date: '2026-09-25', title: '深夜杂谈', url: HUYA_URL },
+    { date: '2026-09-26', title: '高能游戏日', url: HUYA_URL },
+    { date: '2026-09-27', title: '下午茶杂谈', url: HUYA_URL },
+    { date: '2026-09-29', title: '游戏回', url: HUYA_URL },
+  ] as StreamDay[],
 
   clips: [
     { title: '【高能】果子一嗓子把队友唱哭了', plays: '12.6万', date: '2026-09-20', platform: '虎牙', url: HUYA_URL, theme: 'pink', fruit: 'apple' },
