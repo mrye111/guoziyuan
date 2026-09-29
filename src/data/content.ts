@@ -22,12 +22,12 @@ export interface StreamDay {
 
 export interface Clip {
   title: string;
-  plays: string;
-  date: string;
-  platform: '虎牙' | '抖音';
-  url: string;
-  theme: 'pink' | 'violet' | 'amber';
-  fruit: 'apple' | 'peach' | 'strawberry';
+  /** 显示用时长，如 "2:13" */
+  duration: string;
+  /** 本地视频地址（public/clips/，视频不进 git） */
+  src: string;
+  /** 封面图（ffmpeg 从视频 30% 处截取） */
+  cover: string;
 }
 
 export interface Photo {
@@ -55,6 +55,10 @@ export interface SeedMessage {
 
 const photo = (n: number) => `${import.meta.env.BASE_URL}photos/photo-${String(n).padStart(2, '0')}.jpg`;
 const meme = (n: number, ext: 'gif' | 'jpg') => `${import.meta.env.BASE_URL}memes/meme-${String(n).padStart(2, '0')}.${ext}`;
+const clip = (n: number) => ({
+  src: `${import.meta.env.BASE_URL}clips/clip-${String(n).padStart(2, '0')}.mp4`,
+  cover: `${import.meta.env.BASE_URL}clips/cover-${String(n).padStart(2, '0')}.jpg`,
+});
 
 const HUYA_URL = 'https://www.huya.com/158924';
 const DOUYIN_URL =
@@ -72,13 +76,14 @@ export const content = {
      数据来自 B站录像合集，scripts/fetch-replays.mjs 每日自动同步 */
   streams: streamsData as StreamDay[],
 
+  /* 高能切片：本地视频（果子素材/高能切片），点击卡片站内播放 */
   clips: [
-    { title: '【高能】果子一嗓子把队友唱哭了', plays: '12.6万', date: '2026-09-20', platform: '虎牙', url: HUYA_URL, theme: 'pink', fruit: 'apple' },
-    { title: '名场面：果子的反向 Flag 现场', plays: '8.9万', date: '2026-09-14', platform: '虎牙', url: HUYA_URL, theme: 'violet', fruit: 'peach' },
-    { title: '三分钟看完果子的首播名场面', plays: '15.2万', date: '2026-09-06', platform: '抖音', url: DOUYIN_URL, theme: 'amber', fruit: 'strawberry' },
-    { title: '果子与猫の巅峰对决', plays: '6.4万', date: '2026-08-28', platform: '虎牙', url: HUYA_URL, theme: 'violet', fruit: 'apple' },
-    { title: '深夜电台：果子读留言读到哽咽', plays: '9.8万', date: '2026-08-20', platform: '抖音', url: DOUYIN_URL, theme: 'pink', fruit: 'peach' },
-    { title: '果子教你做苹果派（翻车了）', plays: '11.1万', date: '2026-08-12', platform: '虎牙', url: HUYA_URL, theme: 'amber', fruit: 'strawberry' },
+    { title: '果子大资庄园游龙记，一来就拉着姿态跳新宝岛', duration: '2:13', ...clip(1) },
+    { title: '果子小黑子露出鸡脚了，直播间跳鸡你太美', duration: '1:26', ...clip(2) },
+    { title: '果子生涯首哭，被弹幕吓哭了，像极了犯错事的小孩子', duration: '8:20', ...clip(3) },
+    { title: '姿态意外发现果子捂嘴变得巨好看，锐评捂嘴变田曦薇', duration: '1:30', ...clip(4) },
+    { title: '姿态果子互相全力打对方一拳，姿态手都红了', duration: '4:11', ...clip(5) },
+    { title: '果子问 AJ 怎么对待弹幕指挥，AJ：听大哥指挥', duration: '1:13', ...clip(6) },
   ] as Clip[],
 
   /* Hero 照片轮播（精选） */

@@ -46,6 +46,6 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
       - name: Rsync to server
         run: >
-          rsync -az --delete
+          rsync -az --delete --exclude='/clips/'
           -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=accept-new"
           dist/ ubuntu@101.35.250.122:/opt/guoziyuan/web/

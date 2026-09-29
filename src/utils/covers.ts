@@ -1,4 +1,4 @@
-/* 程序生成的扁平水果插画封面（暗夜主题配色，无绿色） */
+/* 程序生成的扁平水果插画（粉丝墙用） */
 
 type ThemeKey = 'pink' | 'violet' | 'amber';
 type Fruit = 'apple' | 'peach' | 'strawberry';
@@ -64,19 +64,6 @@ function sprinkles(rnd: () => number, w: number, h: number, color: string): stri
     out += `<g transform="translate(${x} ${y}) scale(${s})"><polygon points="50,6 62,37 95,37 68,57 77,90 50,70 23,90 32,57 5,37 38,37" fill="#FFC95E" stroke="#FFC95E" stroke-width="10" stroke-linejoin="round" opacity=".6"/></g>`;
   }
   return out;
-}
-
-export function clipCover(theme: ThemeKey, fruit: Fruit, seed: number): string {
-  const t = THEMES[theme];
-  const rnd = mulberry32(seed * 7 + 3);
-  return `<svg viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" style="display:block;width:100%;height:100%">
-    <rect width="400" height="225" fill="${t.bg}"/>
-    ${sprinkles(rnd, 400, 225, t.main)}
-    <circle cx="272" cy="118" r="88" fill="#fff" opacity=".55"/>
-    <circle cx="272" cy="118" r="60" fill="#fff" opacity=".45"/>
-    <g transform="translate(212 52) scale(1.25)">${fruitInner(fruit)}</g>
-    <path d="M26 196 q12 -14 24 0 t24 0" stroke="${t.main}" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>
-  </svg>`;
 }
 
 const RATIO_BOX: Record<string, [number, number]> = { '4:3': [400, 300], '1:1': [400, 400], '3:4': [360, 480] };
