@@ -6,7 +6,7 @@ import { burstHearts } from '../utils/hearts';
 const CHEER_KEY = 'guoziyuan.cheerCount.v2';
 
 export function Hero() {
-  const { live } = content;
+  const { live, liveStatus } = content;
   const [cheers, setCheers] = useState(() => {
     try {
       return parseInt(localStorage.getItem(CHEER_KEY) || '0', 10) || 0;
@@ -48,20 +48,25 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center w-full">
           {/* 文案列 */}
           <div className="text-center lg:text-left">
-            {/* 直播状态 */}
+            {/* 直播状态（每 10 分钟自动同步） */}
             <div className="inline-flex items-center gap-2.5 rounded-full bg-white/75 backdrop-blur-md border border-pink/25 px-4 py-2 text-sm mb-6 shadow-[0_4px_16px_rgba(255,107,138,0.12)]">
-              {live.isLive ? (
+              {liveStatus.isLive ? (
                 <>
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D6D] live-dot-on" />
-                  <span>{live.liveText}</span>
-                  <a href={live.liveUrl} target="_blank" rel="noopener" className="ml-1 px-3 py-0.5 rounded-full bg-pink text-white text-xs font-medium hover:bg-hotpink transition-colors">
+                  <span className="max-w-[220px] sm:max-w-xs truncate">
+                    果子正在直播{liveStatus.roomName ? `：${liveStatus.roomName}` : '，快来看！'}
+                  </span>
+                  <a href={live.liveUrl} target="_blank" rel="noopener" className="ml-1 shrink-0 px-3 py-0.5 rounded-full bg-pink text-white text-xs font-medium hover:bg-hotpink transition-colors">
                     去看看
                   </a>
                 </>
               ) : (
                 <>
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber" />
-                  <span className="text-ink/85">{live.nextText}</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-mute/50" />
+                  <span className="text-ink/85">果子还没开播</span>
+                  <a href="#calendar" className="ml-1 shrink-0 px-3 py-0.5 rounded-full bg-amber/20 border border-amber/50 text-ink/80 text-xs font-medium hover:bg-amber/40 transition-colors">
+                    去补回放
+                  </a>
                 </>
               )}
             </div>

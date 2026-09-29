@@ -1,12 +1,15 @@
 /* 站点全部内容配置 —— 改内容只动这个文件
-   （streams 回放列表在 streams.json，由 scripts/fetch-replays.mjs 每日自动更新） */
+   （streams 回放列表、live-status 开播状态由 scripts/ 下的脚本自动更新） */
 import streamsData from './streams.json';
+import liveStatusData from './live-status.json';
 
-export interface LiveConfig {
+export interface LiveStatus {
   isLive: boolean;
-  liveText: string;
-  liveUrl: string;
-  nextText: string;
+  nick: string;
+  roomName: string;
+  game: string;
+  startTime: number;
+  checkedAt: string;
 }
 
 export interface StreamDay {
@@ -52,11 +55,11 @@ const DOUYIN_URL =
 
 export const content = {
   live: {
-    isLive: false,
-    liveText: '果子正在直播，快来看！',
-    liveUrl: 'https://www.huya.com/158924',
-    nextText: '下次直播：周六晚 8 点',
-  } as LiveConfig,
+    liveUrl: HUYA_URL,
+  },
+
+  /* 虎牙实时开播状态（scripts/fetch-live-status.mjs 每 10 分钟同步） */
+  liveStatus: liveStatusData as LiveStatus,
 
   /* 历史直播记录：有记录的日子会在月历上标粉，点击看回放
      数据来自 B站录像合集，scripts/fetch-replays.mjs 每日自动同步 */
