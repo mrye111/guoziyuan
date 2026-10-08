@@ -32,7 +32,8 @@ async function main() {
   };
 
   const { readFileSync, writeFileSync } = await import('node:fs');
-  const out = new URL('../src/data/live-status.json', import.meta.url);
+  // 默认写到仓库 public/（随构建部署）；服务器上 cron 用 LIVE_STATUS_OUT 直接写 web 根目录
+  const out = new URL(process.env.LIVE_STATUS_OUT || '../public/live-status.json', import.meta.url);
   let prev = null;
   try {
     prev = JSON.parse(readFileSync(out, 'utf-8'));

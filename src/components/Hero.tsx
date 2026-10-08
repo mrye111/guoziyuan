@@ -1,12 +1,37 @@
-import { useState } from 'react';
-import { content } from '../data/content';
+import { useEffect, useState } from 'react';
+import { content, type LiveStatus } from '../data/content';
 import { HeroCarousel } from './HeroCarousel';
 import { burstHearts } from '../utils/hearts';
 
 const CHEER_KEY = 'guoziyuan.cheerCount.v2';
+const STATUS_URL = `${import.meta.env.BASE_URL}live-status.json`;
+const POLL_MS = 120_000;
+
+/** 运行时拉取开播状态（文件由服务器每 5 分钟刷新，页面每 2 分钟轮询） */
+function useLiveStatus() {
+  const [status, setStatus] = useState<LiveStatus | null>(null);
+  useEffect(() => {
+    let stop = false;
+    const load = () =>
+      fetch(STATUS_URL, { cache: 'no-store' })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((j) => {
+          if (!stop && j) setStatus(j);
+        })
+        .catch(() => {});
+    load();
+    const id = window.setInterval(load, POLL_MS);
+    return () => {
+      stop = true;
+      window.clearInterval(id);
+    };
+  }, []);
+  return status;
+}
 
 export function Hero() {
-  const { live, liveStatus } = content;
+  const { live } = content;
+  const liveStatus = useLiveStatus();
   const [cheers, setCheers] = useState(() => {
     try {
       return parseInt(localStorage.getItem(CHEER_KEY) || '0', 10) || 0;
@@ -48,9 +73,14 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center w-full">
           {/* 文案列 */}
           <div className="text-center lg:text-left">
-            {/* 直播状态（每 10 分钟自动同步） */}
+            {/* 直播状态（服务器每 5 分钟同步，页面每 2 分钟轮询） */}
             <div className="inline-flex items-center gap-2.5 rounded-full bg-white/75 backdrop-blur-md border border-pink/25 px-4 py-2 text-sm mb-6 shadow-[0_4px_16px_rgba(255,107,138,0.12)]">
-              {liveStatus.isLive ? (
+              {!liveStatus ? (
+                <>
+                  <span className="w-2.5 h-2.5 rounded-full bg-mute/50 animate-pulse" />
+                  <span className="text-ink/60">直播状态获取中…</span>
+                </>
+              ) : liveStatus.isLive ? (
                 <>
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D6D] live-dot-on" />
                   <span className="max-w-[220px] sm:max-w-xs truncate">

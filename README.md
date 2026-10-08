@@ -18,16 +18,15 @@ npm run preview  # 本地预览构建产物
 
 ## 直播回放 & 开播状态自动同步
 
-两个数据文件都由脚本生成，**不要手改**：
-
 | 文件 | 数据源 | 更新方式 |
 |---|---|---|
-| `src/data/streams.json` | [B站录像合集](https://space.bilibili.com/3707028832783215/lists/8892206?type=season) | 每天北京时间 11:17（`update-replays.yml`） |
-| `src/data/live-status.json` | 虎牙直播间状态接口 | 每 10 分钟（`update-live-status.yml`） |
+| `src/data/streams.json` | [B站录像合集](https://space.bilibili.com/3707028832783215/lists/8892206?type=season) | Actions 每天北京时间 11:17（`update-replays.yml`） |
+| `public/live-status.json` | 虎牙直播间状态接口 | **服务器 cron 每 5 分钟**直写 web 根目录（`/opt/guoziyuan/fetch-live-status.mjs`） |
 
-- 开播/下播有变化时脚本才会写文件并触发提交、部署；状态没变就安静跳过
+- 开播状态是**运行时文件**：页面加载时拉取并每 2 分钟轮询，数据更新不需要重新构建部署
+- 只有状态发生变化时脚本才写文件；失败时保留上次状态
+- 回放脚本按标题解析直播日期（`2026.08.22 20点` 这种格式），同一天多场按时间排序，月历格子显示「回放 ×N」并链接到第一场
 - 手动同步：`npm run fetch-replays` / `npm run fetch-live-status`
-- GitHub 定时任务可能有十余分钟延迟，开播标识最晚约 20 分钟内亮起
 
 ## 目录结构
 

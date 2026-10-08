@@ -1,7 +1,6 @@
 /* 站点全部内容配置 —— 改内容只动这个文件
-   （streams 回放列表、live-status 开播状态由 scripts/ 下的脚本自动更新） */
+   （streams 回放列表由脚本每日自动更新；开播状态是 public/live-status.json 运行时获取） */
 import streamsData from './streams.json';
-import liveStatusData from './live-status.json';
 
 export interface LiveStatus {
   isLive: boolean;
@@ -68,9 +67,6 @@ export const content = {
   live: {
     liveUrl: HUYA_URL,
   },
-
-  /* 虎牙实时开播状态（scripts/fetch-live-status.mjs 每 10 分钟同步） */
-  liveStatus: liveStatusData as LiveStatus,
 
   /* 历史直播记录：有记录的日子会在月历上标粉，点击看回放
      数据来自 B站录像合集，scripts/fetch-replays.mjs 每日自动同步 */
