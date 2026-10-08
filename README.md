@@ -28,6 +28,14 @@ npm run preview  # 本地预览构建产物
 - 回放脚本按标题解析直播日期（`2026.08.22 20点` 这种格式），同一天多场按时间排序，月历格子显示「回放 ×N」并链接到第一场
 - 手动同步：`npm run fetch-replays` / `npm run fetch-live-status`
 
+## 表情包广场（公开上传）
+
+- **后端**：`server/meme-api.mjs`（零依赖 node:http），跑在服务器 `127.0.0.1:8787`（systemd 服务 `guoziyuan-api`），nginx 反代 `/api/`
+- **存储**：文件在服务器 `/opt/guoziyuan/uploads/files/`（nginx `^~ /memes/uploads/` 直接静态服务），索引 `index.json`
+- **防护**：图片魔数白名单（PNG/JPG/GIF/WebP，拒绝 SVG）、8MB 上限、IP 限频（2 张/分钟、15 张/天）、随机文件名、字幕限长去控制字符
+- **删除**：上传者凭 localStorage 里的令牌删自己的；管理员用 `/opt/guoziyuan/uploads/admin-token`（请求头 `X-Admin-Token`）可删任意
+- 本地开发时 vite 把 `/api` 和 `/memes/uploads` 代理到线上服务器，改动会直接作用于线上数据
+
 ## 目录结构
 
 ```
@@ -62,4 +70,4 @@ npm run preview  # 本地预览构建产物
 
 ## 边界
 
-星光留言存在访问者浏览器 localStorage；用户上传的表情包存在访问者浏览器 IndexedDB（≤40 张，GIF ≤8MB 原样播放，其余压缩到 800px 内），均只有自己可见，页面上有明确提示。原始照片素材放在本地 `果子素材/`（已 gitignore），仓库只提交 `public/` 里的副本。
+星光留言存在访问者浏览器 localStorage；表情包广场是**公开共享**的（见上节）；原始照片素材放在本地 `果子素材/`（已 gitignore），仓库只提交 `public/` 里的副本。切片视频不进 git，单独存放在服务器 `/opt/guoziyuan/web/clips/`（Actions 部署已排除该目录）。
